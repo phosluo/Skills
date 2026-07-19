@@ -1,0 +1,3 @@
+display_name: Markdown To Apple Books
+short_description: Turn Markdown into EPUB and send it to Apple Books
+default_prompt: Convert my Markdown file into an EPUB and copy it into Apple Books.
