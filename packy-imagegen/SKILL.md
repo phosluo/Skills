@@ -30,7 +30,7 @@ export PACKY_API_KEY="<Sora group token>"
 ## Command
 
 ```bash
-python3 scripts/generate.py \
+python3 <this-skill-dir>/scripts/generate.py \
   --prompt "A realistic product photo of a ceramic mug" \
   --size 1024x1024 \
   --quality medium \
