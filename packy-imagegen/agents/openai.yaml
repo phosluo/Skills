@@ -1,0 +1,4 @@
+interface:
+  display_name: "Packy Imagegen"
+  short_description: "Generate and save images through PackyAPI GPT Image"
+  default_prompt: "Use $packy-imagegen to generate a portrait image and save it in the current workspace."
