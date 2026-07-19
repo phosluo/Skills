@@ -1,13 +1,13 @@
 ---
 name: yt-dlp-smart-downloader
-description: Use when the user wants to download one or more videos or audio files with yt-dlp, compare available sizes or resolutions before downloading, run parallel downloads with sub-agents, or repair the final media file with ffmpeg and clean up the output filename.
+description: Use when the user wants to download one or more videos or audio files with yt-dlp, compare available sizes or resolutions before downloading, run parallel downloads with parallel workers, or repair the final media file with ffmpeg and clean up the output filename.
 ---
 
 # yt-dlp-smart-downloader
 
 ## Overview
 
-This skill handles real-world `yt-dlp` download requests end to end: inspect formats first, let the user choose only when size tradeoffs are significant, always use sub-agents for download execution, optionally repair the container with `ffmpeg`, and leave behind clean final filenames.
+This skill handles real-world `yt-dlp` download requests end to end: inspect formats first, let the user choose only when size tradeoffs are significant, always use parallel workers for download execution, optionally repair the container with `ffmpeg`, and leave behind clean final filenames.
 
 Default assumption: the user wants the task completed, not just command suggestions. Run commands when possible and only ask brief follow-up questions when a choice has meaningful consequences.
 
@@ -18,7 +18,7 @@ Use this skill when the user asks to:
 - download a video or audio file with `yt-dlp`
 - inspect available sizes, resolutions, or format IDs before downloading
 - batch download multiple URLs
-- use sub-agents for parallel download work
+- use parallel workers for parallel download work
 - repair `MPEG-TS in MP4`, broken timestamps, or similar post-download container issues with `ffmpeg`
 - rename downloaded files to human-friendly titles
 
@@ -77,9 +77,9 @@ For a single URL:
 
 For downloads:
 
-- always use sub-agents for the actual download work so multiple items can run concurrently and the main agent stays unblocked
-- for one URL, a single sub-agent may handle the full download
-- for multiple URLs, prefer one sub-agent per URL
+- always use parallel workers for the actual download work so multiple items can run concurrently and the main agent stays unblocked
+- for one URL, a single worker may handle the full download
+- for multiple URLs, prefer one worker per URL
 - each worker should own only its assigned URL(s) and output files
 
 Useful patterns:
@@ -119,7 +119,7 @@ See [references/naming-and-fixups.md](references/naming-and-fixups.md) for filen
 ## Communication Rules
 
 - Give short progress updates while downloads are running.
-- When using sub-agents, tell the user you are parallelizing the work and what each agent is doing.
+- When using parallel workers, tell the user you are parallelizing the work and what each agent is doing.
 - When a choice is needed, ask one concise question with concrete options.
 - Be explicit about assumptions, especially when carrying forward a preference like `720p`.
 

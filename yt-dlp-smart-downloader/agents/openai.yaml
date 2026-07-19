@@ -1,7 +1,0 @@
-interface:
-  display_name: "yt-dlp Smart Downloader"
-  short_description: "Compare formats, download media, repair files, and clean up names"
-  default_prompt: "Use $yt-dlp-smart-downloader to inspect formats, ask me only if a practical option is over 200 MB, then use sub-agents to download the selected media and repair the final file with ffmpeg if necessary."
-
-policy:
-  allow_implicit_invocation: true
