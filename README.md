@@ -1,6 +1,6 @@
 # Skills
 
-A collection of reusable AI agent skills for [Codex](https://github.com/openai/codex).
+A collection of reusable AI agent skills.
 
 ## Skills
 
@@ -12,10 +12,4 @@ A collection of reusable AI agent skills for [Codex](https://github.com/openai/c
 
 ## Usage
 
-Copy the desired skill folder into your Codex skills directory:
-
-```bash
-cp -r <skill-name> ~/.codex/skills/
-```
-
-Each skill contains a `SKILL.md` that describes its purpose and workflow.
+Each skill folder contains a `SKILL.md` describing its purpose, workflow, and usage instructions. Copy or adapt the skill to your preferred AI coding agent.
